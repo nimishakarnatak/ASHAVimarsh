@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import '../constants/colors.dart';
+import 'package:flutter_markdown/flutter_markdown.dart';
 
 class ChatBubble extends StatelessWidget {
   final String message;
@@ -15,7 +16,9 @@ class ChatBubble extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return SizedBox(
+      width: MediaQuery.of(context).size.width,
+      child: Column(
       crossAxisAlignment:
           isUser ? CrossAxisAlignment.end : CrossAxisAlignment.start,
       children: [
@@ -32,16 +35,46 @@ class ChatBubble extends StatelessWidget {
             color: isUser ? const Color(0x80695BCC) : Colors.white,
             borderRadius: BorderRadius.circular(10),
           ),
-          child: Text(
-            message,
-            style: const TextStyle(
-              fontSize: 10,
-              color: Colors.black,
+          // child: Text(
+          //   message,
+          //   style: const TextStyle(
+          //     fontSize: 10,
+          //     color: Colors.black,
+          //   ),
+          // ),
+          child: MarkdownBody(
+            data: message,
+            styleSheet: MarkdownStyleSheet(
+              p: const TextStyle(
+                fontSize: 10,
+                color: Colors.black,
+              ),
+              code: const TextStyle(
+                fontSize: 10,
+                backgroundColor: Color(0xFFF5F5F5),
+                color: Colors.black87,
+              ),
+              h1: const TextStyle(
+                fontSize: 14,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+              h2: const TextStyle(
+                fontSize: 12,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+              blockquote: const TextStyle(
+                fontSize: 10,
+                fontStyle: FontStyle.italic,
+                color: Colors.black54,
+              ),
             ),
           ),
         ),
         if (extraContent != null) extraContent!,
       ],
+    )
     );
   }
 }

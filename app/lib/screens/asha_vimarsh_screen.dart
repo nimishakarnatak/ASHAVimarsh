@@ -36,7 +36,7 @@ class _AshaVirmarshScreenState extends State<AshaVirmarshScreen> {
           ],
         ),
       ),
-      floatingActionButton: _buildEmergencyFAB(),
+      // floatingActionButton: _buildEmergencyFAB(),
     );
   }
 
@@ -389,24 +389,24 @@ Key signs of measles include:
     );
   }
 
-  Widget _buildEmergencyFAB() {
-    return Container(
-      width: 41,
-      height: 41,
-      decoration: const BoxDecoration(
-        shape: BoxShape.circle,
-        color: AppColors.red,
-      ),
-      child: const Center(
-        child: Text(
-          '!',
-          style: TextStyle(
-            color: AppColors.white,
-            fontSize: 20,
-            fontWeight: FontWeight.w700,
-          ),
-        ),
-      ),
-    );
-  }
+  // Widget _buildEmergencyFAB() {
+  //   return Container(
+  //     width: 41,
+  //     height: 41,
+  //     decoration: const BoxDecoration(
+  //       shape: BoxShape.circle,
+  //       color: AppColors.red,
+  //     ),
+  //     child: const Center(
+  //       child: Text(
+  //         '!',
+  //         style: TextStyle(
+  //           color: AppColors.white,
+  //           fontSize: 20,
+  //           fontWeight: FontWeight.w700,
+  //         ),
+  //       ),
+  //     ),
+  //   );
+  // }
 }
