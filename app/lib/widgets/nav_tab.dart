@@ -30,7 +30,7 @@ class NavTab extends StatelessWidget {
               duration: const Duration(milliseconds: 200),
               margin: const EdgeInsets.only(top: 12),
               height: 2,
-              width: isSelected ? 84 : 0,
+              width: isSelected ? 75 : 0,
               color: AppColors.primary,
             ),
           ],
