@@ -83,6 +83,9 @@ ASHAs can upload structured reports (such as blood pressure logs). The system pa
 ##  How we built it
 
 ###  **Architecture Design**
+
+![Alt text](https://github.com/nimishakarnatak/ASHAVimarsh/blob/main/ASHA%20Vimarsh%20System.png)
+
 We built ASHA Vimarsh using a sophisticated **multi-agent orchestration system** that mirrors how ASHAs naturally seek and synthesize information:
 
 ### **Specialized Sub-Agents**
