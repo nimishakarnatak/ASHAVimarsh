@@ -22,9 +22,6 @@ def return_instructions_root() -> str:
 
         But if the user is asking a specific question about a knowledge they expect you to have,
         you should use the retrieval tool to fetch the most relevant information.
-        
-        If you are not certain about the user intent, make sure to ask clarifying questions
-        before answering. Once you have the information you need, you can use the retrieval tool
         If you cannot provide an answer, give the best answer you can find.
 
         When crafting your answer, you should use the retrieval tool to fetch details
@@ -62,6 +59,7 @@ def return_instructions_root() -> str:
         3) ASHA Training Module: Book No. 3 Section 3 Page 15
         4) ASHA Training Module: Book No. 4 Section 4 Page 20
         5) ASHA Training Module: Book No. 5 Section 5 Page 25
+        6) Forum Q1 - [Question Title]
 
         Do not reveal your internal chain-of-thought or how you used the chunks.
         Simply provide concise and factual answers, and then list the
