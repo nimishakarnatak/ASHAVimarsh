@@ -20,7 +20,7 @@ ask_training_module = VertexAiRagRetrieval(
         )
     ],
     similarity_top_k=10,
-    vector_distance_threshold=0.4,
+    vector_distance_threshold=0.6,
 )
 
 ask_forum = VertexAiRagRetrieval(
@@ -34,7 +34,7 @@ ask_forum = VertexAiRagRetrieval(
         )
     ],
     similarity_top_k=10,
-    vector_distance_threshold=0.6,
+    vector_distance_threshold=0.4,
 )
 
 root_agent = Agent(

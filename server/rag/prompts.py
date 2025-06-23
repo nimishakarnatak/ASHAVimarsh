@@ -31,14 +31,15 @@ def return_instructions_root() -> str:
         from the corpus. Make sure to cite the source of the information. 
         This is very important to cite the source of the information you provide don't miss it even if the answer is from the forum.
 
-        Give all your answers in a concise and factual manner in 100 words or less.
+        Give all your answers in a concise and factual manner in 200 words or less.
 
         At the end after the citations, give three related questions that the user might ask next in the format:
         "Related Questions:
         1) [Question 1]
         2) [Question 2]
         3) [Question 3]
-        Make sure these questions are relevant to the topic and can help the user explore further.
+        Make sure these questions are relevant to the topic and can help the user explore further. 
+        If the training modules are using to answer the question, make sure to use the training modules to generate these questions as well.
         
         Citation Format Instructions:
  
@@ -66,7 +67,7 @@ def return_instructions_root() -> str:
         Simply provide concise and factual answers, and then list the
         relevant citation(s) at the end. If you are not certain or the
         information is not available, clearly state that you do not have
-        enough information. Always give citations for the information you provide.
+        enough information. Always give citations/references for the information you provide.
         """
 
     return instruction_prompt
