@@ -1,4 +1,4 @@
-from fastapi import FastAPI, HTTPException, Depends, Query, status
+from fastapi import FastAPI, HTTPException, Depends, Query, status, Form
 from fastapi.security import HTTPBearer, HTTPAuthorizationCredentials
 from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy.orm import Session
@@ -68,12 +68,14 @@ def register_user(user: UserCreate, db: Session = Depends(get_db)):
     return db_user
 
 @app.post("/auth/login")
-def login_user(email: str, password: str, db: Session = Depends(get_db)):
+def login_user(email: str = Form(...), password: str = Form(...), db: Session = Depends(get_db)):
+    print(email, password)
     user = db.query(User).filter(User.email == email).first()
     if not user or not verify_password(password, user.hashed_password):
         raise HTTPException(status_code=401, detail="Invalid credentials")
     
     access_token = create_access_token(data={"sub": user.email})
+    print(f"User {user.username} logged in successfully")
     return {"access_token": access_token, "token_type": "bearer", "user": user}
 
 # Question endpoints
