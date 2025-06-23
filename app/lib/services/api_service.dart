@@ -10,9 +10,7 @@ import '../models/login_response.dart';
 import '../models/search_response.dart';
 
 class ApiService {
-  static const String baseUrl = 'http://10.0.2.2:8001'; // Android emulator
-  // static const String baseUrl = 'http://localhost:8001'; // iOS simulator
-  // static const String baseUrl = 'http://YOUR_SERVER_IP:8001'; // Physical device
+  static const String baseUrl = 'http://34.58.74.142:8001'; // Android emulator
   
   static String? _authToken;
   

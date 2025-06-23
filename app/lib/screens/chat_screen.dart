@@ -4,6 +4,7 @@ import 'dart:convert';
 import '../constants/colors.dart';
 import '../widgets/chat_bubble.dart';
 import '../widgets/chat_input.dart';
+import 'dart:io';
 
 class ChatScreen extends StatefulWidget {
   const ChatScreen({Key? key}) : super(key: key);
@@ -19,6 +20,7 @@ class _ChatScreenState extends State<ChatScreen> {
   // Store conversation messages
   List<ChatMessage> messages = [];
   bool isLoading = false;
+  List<File> selectedFiles = [];
   
   // API Configuration - Update these with your actual values
   static const String baseUrl = 'http://34.58.74.142:8000';
@@ -74,6 +76,13 @@ Key signs of measles include:
       response: response,
     ));
   }
+
+  void _handleFilesSelected(List<File> files) {
+    setState(() {
+      selectedFiles = files;
+    });
+  }
+
 
   Future<void> _handleSend() async {
     if (_messageController.text.trim().isEmpty) return;
@@ -187,7 +196,11 @@ Key signs of measles include:
         // Extract the response text from the API response
         String responseText = '';
 
-        responseText = data[0]['content']['parts'][0]['text'];
+        print(data);
+
+        int content_idx = data.length - 1;
+
+        responseText = data[content_idx]['content']['parts'][0]['text'];
         
         return _parseAPIResponse(responseText);
       } else {
@@ -212,9 +225,11 @@ Key signs of measles include:
     
     for (String line in lines) {
       line = line.trim();
+      print(line.toLowerCase());
       if (line.isEmpty) continue;
       
-      if (line.toLowerCase().contains('citations:')) {
+      if (line.toLowerCase().contains('citations:') || 
+          line.toLowerCase().contains('references:')) {
         currentSection = 'citations';
         continue;
       } else if (line.toLowerCase().contains('related questions:')) {
@@ -227,16 +242,16 @@ Key signs of measles include:
       
       switch (currentSection) {
         case 'citations':
-          if (line.startsWith(RegExp(r'\d+\)'))) {
+          // if (line.startsWith(RegExp(r'\d+\)'))) {
             // Remove the number prefix
             citations.add(line.replaceFirst(RegExp(r'^\d+\)\s*'), ''));
-          }
+          // }
           break;
         case 'related':
-          if (line.startsWith(RegExp(r'\d+\)'))) {
+          // if (line.startsWith(RegExp(r'\d+\)'))) {
             // Remove the number prefix
             relatedQuestions.add(line.replaceFirst(RegExp(r'^\d+\)\s*'), ''));
-          }
+          // }
           break;
         default:
           if (!line.toLowerCase().contains('citations:') && 
@@ -324,6 +339,7 @@ Key signs of measles include:
         ChatInput(
           controller: _messageController,
           onSend: _handleSend,
+          onFilesSelected: _handleFilesSelected,
           // enabled: !isLoading,
         ),
       ],

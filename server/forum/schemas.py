@@ -1,6 +1,7 @@
 from pydantic import BaseModel, EmailStr
 from typing import List, Optional
 from datetime import datetime
+from typing import Optional, Dict, Any
 
 # User schemas
 class UserBase(BaseModel):
@@ -98,3 +99,23 @@ class SearchResponse(BaseModel):
     questions: List[QuestionResponse]
     answers: List[AnswerResponse]
     total_results: int
+
+
+class RAGQueryRequest(BaseModel):
+    query: str
+    top_k: Optional[int] = 5
+
+class RAGQueryResponse(BaseModel):
+    query: str
+    response: str
+    sources: Optional[str]
+    timestamp: str
+
+class RAGSyncRequest(BaseModel):
+    question_ids: Optional[List[int]] = None  # If None, sync all questions
+    limit: Optional[int] = 100
+
+class RAGStatsResponse(BaseModel):
+    total_files: int
+    corpus_name: str
+    files: List[Dict[str, Any]]
