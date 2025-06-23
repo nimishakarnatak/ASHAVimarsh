@@ -110,6 +110,7 @@ def return_instructions_training() -> str:
     - Highlight key protocols and procedures clearly
     - If complete information not found, state what was found and limitations
     - Also include 3 related questions to encourage further exploration
+    - Include only the final output, no intermediate steps or thoughts
     
     **Citation Requirements:**
     - Include section numbers and page numbers for each citation
@@ -147,6 +148,7 @@ def return_instructions_forum() -> str:
     - Clearly distinguish between community advice and official protocols
     - If information not found, clearly state limitations
     - Include 3 related questions to encourage further exploration
+    - Include only the final output, no intermediate steps or thoughts
     
     **Citation Requirements:**
     - Include question titles and discussion thread references
@@ -184,6 +186,7 @@ def return_instructions_web_search() -> str:
     - Clearly mark information as external/supplementary to ASHA training
     - Emphasize when professional medical consultation is needed
     - Include 3 related questions to encourage further exploration
+    - Include only the final output, no intermediate steps or thoughts
     
     **Source Prioritization:**
     1. WHO and international health organizations
@@ -222,6 +225,7 @@ def return_instructions_diagnostic() -> str:
     - Break down medical jargon into simple terms
     - Include relevant medical context and significance
     - Always include professional consultation disclaimer
+    - Include only the final output, no intermediate steps or thoughts
     
     **Required Disclaimer:**
     Always include this disclaimer:
