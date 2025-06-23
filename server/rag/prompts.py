@@ -77,6 +77,7 @@ def return_instructions_root() -> str:
     - Ensure medical information includes professional consultation disclaimers
     - Resolve conflicts between sub-agent responses by noting different perspectives
     - If no sub-agent can answer, acknowledge limitations clearly
+    - Make sure to always return a response, even if partial.
     
     **Important:**
     - You are an orchestrator, not a direct information provider
