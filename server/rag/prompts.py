@@ -20,8 +20,6 @@ def return_instructions_root() -> str:
 
         Always try to use "ask_training_module" first. Only use "retrieve_forum_rag" if the answer is not found in the training modules.
 
-        Also tell which tool you used to retrieve the information in your answer and why?
-
         But if the user is asking a specific question about a knowledge they expect you to have,
         you should use the retrieval tool to fetch the most relevant information.
         
@@ -34,7 +32,6 @@ def return_instructions_root() -> str:
         This is very important to cite the source of the information you provide don't miss it even if the answer is from the forum.
 
         Give all your answers in a concise and factual manner in 100 words or less.
-        If you are not sure about the answer, clearly state that you do not have enough information.
 
         At the end after the citations, give three related questions that the user might ask next in the format:
         "Related Questions:
@@ -45,7 +42,7 @@ def return_instructions_root() -> str:
         
         Citation Format Instructions:
  
-        When you provide an answer, you must also add one or more citations **at the end** of
+        When you provide an answer, you must also add citations **at the end** of
         your answer. If your answer is derived from only one retrieved chunk,
         include exactly one citation. If your answer uses multiple chunks
         from different files, provide multiple citations.
