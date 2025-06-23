@@ -42,7 +42,7 @@ def return_instructions_root() -> str:
         
         Citation Format Instructions:
  
-        When you provide an answer, you must also add citations **at the end** of
+        When you provide an answer, you must always add citations **at the end** of
         your answer. If your answer is derived from only one retrieved chunk,
         include exactly one citation. If your answer uses multiple chunks
         from different files, provide multiple citations.
@@ -66,7 +66,7 @@ def return_instructions_root() -> str:
         Simply provide concise and factual answers, and then list the
         relevant citation(s) at the end. If you are not certain or the
         information is not available, clearly state that you do not have
-        enough information.
+        enough information. Always give citations for the information you provide.
         """
 
     return instruction_prompt
