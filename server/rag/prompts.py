@@ -27,7 +27,7 @@ def return_instructions_root() -> str:
         
         If you are not certain about the user intent, make sure to ask clarifying questions
         before answering. Once you have the information you need, you can use the retrieval tool
-        If you cannot provide an answer, clearly explain why.
+        If you cannot provide an answer, give the best answer you can find.
 
         When crafting your answer, you should use the retrieval tool to fetch details
         from the corpus. Make sure to cite the source of the information. 
