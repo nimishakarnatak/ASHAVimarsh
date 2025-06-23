@@ -48,7 +48,7 @@ forum_rag_tool = VertexAiRagRetrieval(
 
 # 1. Training Module Sub-Agent
 training_sub_agent = Agent(
-    model='gemini-2.5-pro-preview-03-25',
+    model='gemini-2.5-flash',
     name='training_module_agent',
     instruction=return_instructions_training(),
     description='Specialized sub-agent for ASHA training module queries and official protocols',
@@ -57,7 +57,7 @@ training_sub_agent = Agent(
 
 # 2. Forum Sub-Agent  
 forum_sub_agent = Agent(
-    model='gemini-2.5-pro-preview-03-25',
+    model='gemini-2.5-flash',
     name='forum_agent',
     instruction=return_instructions_forum(),
     description='Specialized sub-agent for forum discussions and community Q&A',
@@ -66,7 +66,7 @@ forum_sub_agent = Agent(
 
 # 3. Web Search Sub-Agent (with error handling for missing GoogleSearchTool)
 web_search_sub_agent = Agent(
-    model='gemini-2.5-pro-preview-03-25',
+    model='gemini-2.5-flash',
     name='web_search_agent',
     instruction=return_instructions_web_search(),
     description='Specialized sub-agent for web search and current medical information',
@@ -79,7 +79,7 @@ diagnostic_tools = []
 #     diagnostic_tools.append(ImageAnalysisTool())
 
 diagnostic_sub_agent = Agent(
-    model='gemini-2.5-pro-preview-03-25',
+    model='gemini-2.5-flash',
     name='diagnostic_agent',
     instruction=return_instructions_diagnostic(),
     description='Specialized sub-agent for analyzing diagnostic reports and medical documents',
@@ -91,7 +91,7 @@ diagnostic_sub_agent = Agent(
 # ============================================================================
 
 root_agent = Agent(
-    model='gemini-2.5-pro-preview-03-25',
+    model='gemini-2.5-flash',
     name='asha_root_orchestrator',
     instruction=return_instructions_root(),
     description=(
