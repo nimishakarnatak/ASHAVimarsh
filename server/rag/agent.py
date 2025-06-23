@@ -12,16 +12,6 @@ from .prompts import return_instructions_root
 
 load_dotenv()
 
-# ask_web = Agent(
-#     model='gemini-2.0-flash',
-#     name='retireive_web_fallback',
-#     description="Agent to answer questions using Google Search.",
-#     instruction=
-#         'Use this tool to search the web for general health queries when no relevant answer is found in the training modules or forum discussions.'
-#     ,
-#     tools=[google_search],
-# )
-
 ask_training_module = VertexAiRagRetrieval(
     name='asha_training_retrieval',
     description=(
@@ -50,6 +40,16 @@ ask_forum = VertexAiRagRetrieval(
     vector_distance_threshold=0.4,
 )
 
+web_search_tool = Agent(
+    model='gemini-2.5-pro-preview-03-25',
+    name='web_search_fallback',
+    description=(
+        'Use this tool to search the web for information when the answer cannot be found '
+        'in training modules or forum discussions. This should be used as a last resort.'
+    ),
+    tools=[google_search]
+)
+
 root_agent = Agent(
     model='gemini-2.5-pro-preview-03-25',
     name='ask_rag_agent',
@@ -60,6 +60,7 @@ root_agent = Agent(
     ),
     tools=[
         ask_training_module,
-        ask_forum
+        ask_forum,
+        agent_tool.AgentTool(agent=web_search_tool)
     ]
 )
