@@ -23,11 +23,26 @@ ask_vertex_retrieval = VertexAiRagRetrieval(
     vector_distance_threshold=0.6,
 )
 
+ask_forum = VertexAiRagRetrieval(
+    name='retrieve_forum_rag',
+    description=(
+        'Use this tool to retrieve answers for the question from the Forum corpus.'
+    ),
+    rag_resources=[
+        rag.RagResource(
+            rag_corpus=os.environ.get("FORUM_CORPUS")
+        )
+    ],
+    similarity_top_k=10,
+    vector_distance_threshold=0.6,
+)
+
 root_agent = Agent(
     model='gemini-2.0-flash-001',
     name='ask_rag_agent',
     instruction=return_instructions_root(),
     tools=[
         ask_vertex_retrieval,
+        ask_forum
     ]
 )
