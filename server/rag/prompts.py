@@ -63,9 +63,7 @@ def return_instructions_root() -> str:
 
         Do not reveal your internal chain-of-thought or how you used the chunks.
         Simply provide concise and factual answers, and then list the
-        relevant citation(s) at the end. If you are not certain or the
-        information is not available, clearly state that you do not have
-        enough information. Always give citations/references for the information you provide.
+        relevant citation(s) at the end. Always give citations/references for the information you provide.
         """
 
     return instruction_prompt
